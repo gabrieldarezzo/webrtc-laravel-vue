@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::middleware(['auth'])
+    ->group(function(){
+        Route::get('users', 'UsersController@index');
+        Route::get('messages/{id}', 'ChatsController@show');
+        Route::get('messages', 'ChatsController@store');
+
+    });
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
