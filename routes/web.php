@@ -19,7 +19,7 @@ Route::middleware(['auth'])
     ->group(function(){
         Route::get('users', 'UsersController@index');
         Route::get('messages/{id}', 'ChatsController@show');
-        Route::get('messages', 'ChatsController@store');
+        Route::post('messages', 'ChatsController@store');
 
     });
 

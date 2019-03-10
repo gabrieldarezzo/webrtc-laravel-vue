@@ -21,4 +21,23 @@ class Chat extends Model
     {
         return $this->hasOne(\App\user::class, 'receiver');
     }
+
+    public function getAllByMeAnd($id)
+    {
+        return $this->orWhere(function($query) use($id) {
+            $query->where('sender', \Auth::user()->id)
+                ->where('receiver', $id);
+        })
+        ->orWhere(function($query) use($id) {
+            $query
+                ->where('receiver', $id)
+                ->where('sender', \Auth::user()->id);
+        })
+        ->latest()
+        ->get();
+    }
+
+
+
+    
 }
