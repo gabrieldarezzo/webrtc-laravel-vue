@@ -6419,7 +6419,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n@-webkit-keyframes pulse {\n50% {\n        background: transparent;\n}\n}\n@keyframes pulse {\n50% {\n        background: transparent;\n}\n}\na {\n    cursor: pointer;\n}\n#rec {\n    position: fixed;\n    right: 10px;\n    bottom: 10px;\n}\n#rec:after {\n    display: block;\n    content: '';\n    width: 30px;\n    height: 30px;\n    background: red;\n    border-radius: 30px;\n}\n#rec.recording:after {\n    -webkit-animation: pulse 1s infinite;\n            animation: pulse 1s infinite;\n} \n", ""]);
+exports.push([module.i, "\n@-webkit-keyframes pulse {\n50% {\r\n        background: transparent;\n}\n}\n@keyframes pulse {\n50% {\r\n        background: transparent;\n}\n}\na {\r\n    cursor: pointer;\n}\n#rec {\r\n    position: fixed;\r\n    right: 10px;\r\n    bottom: 10px;\n}\n#rec:after {\r\n    display: block;\r\n    content: '';\r\n    width: 30px;\r\n    height: 30px;\r\n    background: red;\r\n    border-radius: 30px;\n}\n#rec.recording:after {\r\n    -webkit-animation: pulse 1s infinite;\r\n            animation: pulse 1s infinite;\n} \r\n", ""]);
 
 // exports
 
