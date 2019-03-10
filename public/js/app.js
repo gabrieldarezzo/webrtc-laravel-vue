@@ -1837,6 +1837,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -37697,9 +37699,11 @@ var render = function() {
                           },
                           [
                             _c("div", { staticClass: "card-header" }, [
-                              _vm._v(
-                                "\n                                    ...\n                                "
-                              )
+                              _c("audio", { attrs: { controls: "" } }, [
+                                _c("source", {
+                                  attrs: { src: "/audios/" + message.audio }
+                                })
+                              ])
                             ])
                           ]
                         )

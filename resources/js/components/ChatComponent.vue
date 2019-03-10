@@ -31,7 +31,9 @@
                                     v-for="message in messages" :key="message.id" 
                                     >
                                     <div class="card-header">
-                                        ...
+                                        <audio controls>
+                                            <source :src="'/audios/' + message.audio">
+                                        </audio>
                                     </div>
 
                                 </div>

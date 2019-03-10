@@ -30,4 +30,13 @@ php artisan serve
 ```
 
 
+# Delete all tables, and reacreate and seed
+```bash
+php artisan migrate:refresh
+php artisan db:seed
+```
+
+
+
+
  

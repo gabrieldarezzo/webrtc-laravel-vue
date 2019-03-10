@@ -17,8 +17,7 @@ class ChatsController extends Controller
             return;
         }
 
-        $request->file('audio')->move(public_path(), 'audio.ogg');
-        return [];        
+        return (new Chat)->saveAudio($request->file('audio'), $request->input('receiver'));   
     }
 
 }
