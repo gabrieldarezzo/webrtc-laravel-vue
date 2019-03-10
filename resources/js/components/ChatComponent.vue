@@ -3,14 +3,17 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">My Chat {{started}}</div>
+                    <div class="card-header">My Chat</div>
 
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
                                 <ul class="nav flex-column">
                                     <li class="nav-item" v-for="user in users" :key="user.id">
-                                        <a href="#" class="nav-link" @click="loadMessages(user)">{{user.name}}</a>
+                                        <a href="#" 
+                                        class="nav-link"
+                                        :class="{'btn-info': received.indexOf(user.id) > -1}" 
+                                        @click="loadMessages(user)" >{{user.name}}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -87,8 +90,7 @@
                 recording: false,                
                 recorder: null,  
                 recordedData: [],  
-                
-                
+                received: [],  
             }
         },
         mounted() {
@@ -99,12 +101,30 @@
             .catch((err) => {
                 // this.users = err
                 this.error = true
-            })
+            });
+
+            Echo.channel('channel.messages.' + me)
+                .listen('AudioSended', (e) => {
+                    console.log(e.message);
+                    if(e.message.sender === this.currentChat.id) {
+                        this.messages.splice(0,0, e.message);
+                    } else {
+                        this.received.push(e.message.sender);
+                    }
+                });
         },
         methods: {
             loadMessages(user) {
                 this.started = true
                 this.loading = true
+                
+                let index = this.received.indexOf(user.id);
+                if (index > -1) {
+                    this.received.splice(index, 1);
+                }
+
+
+                
 
                 axios.get('/messages/' + user.id)
                 .then((response) => {
@@ -112,8 +132,6 @@
                     this.loading = false
                     this.currentChat = user
                     this.messages = response.data
-
-                    
                 })
                 .catch((err) => {
                     // this.users = err
@@ -156,8 +174,9 @@
                         formData.append('receiver', this.currentChat.id);
 
                         axios.post('messages', formData)
-                            .then(() => {
+                            .then((response) => {
                                 console.log('send to backend');
+                                 this.messages.splice(0,0, response.data);
                             })
 
                     }

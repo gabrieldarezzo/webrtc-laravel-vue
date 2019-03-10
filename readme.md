@@ -1,14 +1,14 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
-
 ## WebRTC-App  
 Sample teste with WebRTC + Larvel + VueJs  
+
+<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+
+
+
+Sample teste with WebRTC + Larvel + VueJs + Pusher (❤️RealTime❤️)
+
+# Random Pic
+![Cards aba Sprint](docs/example_chat.png)   
 
 
 
@@ -21,22 +21,39 @@ CREATE DATABASE webrtc COLLATE 'utf8_general_ci';
 
 ```bash
 php artisan migrate
+php artisan db:seed
 ```
 
-
-# Start Server in laravel 
+# Start Server in laravel   
 ```bash
 php artisan serve
 ```
 
 
-# Delete all tables, and reacreate and seed
+
+
+# Drop all tables, and Create again seeding then   
 ```bash
 php artisan migrate:refresh
 php artisan db:seed
 ```
 
+# Login Try Yourself:    
+
+User 1:  
+gabrieldarezzo@yahoo.com.br  
+Pass:  
+password  
+
+User 2:  
+teste@yahoo.com.br  
+Pass:  
+password  
+
+
+# Certificado (isso vale algo?! kkkk)
+![Cards aba Sprint](docs/random_name.jpg)   
+   
 
 
 
- 

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Events\AudioSended;
 
 class Chat extends Model
 {
@@ -48,7 +49,11 @@ class Chat extends Model
             'receiver' => $receiver,
         ];
 
-        return $this->create($dataSave);
+        $chat = $this->create($dataSave);
+        
+        broadcast(new AudioSended($chat));
+
+        return $chat;
     }
     
 }
